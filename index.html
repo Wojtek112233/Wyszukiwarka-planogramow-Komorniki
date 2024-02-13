@@ -26,10 +26,6 @@
             background-color: green; /* Zmiana koloru przycisku "Wyszukaj" na zielony */
             color: white;
         }
-       /* button#scanButton {*/
-          /*  background-color: blue;*/ /* Zmiana koloru przycisku "skaner" na niebieski */
-          /*  color: white;*/
-       /* }*/
         table {
             border-collapse: collapse;
             margin-top: 15px;
@@ -66,10 +62,7 @@
 
 <h2>Wyszukiwarka planogramów</h2>
 
-  /* <!-- Przycisk do uruchamiania skanera -->*/
-  /* <input type="file" accept="image/*" capture="environment" id="scanButton" style="display:none;">*/
-  /* <button id="scanButton" onclick="openScanner()">skaner</button>*/
-
+<!-- Usunięcie przycisku do uruchamiania skanera -->
 <input type="text" id="searchInput" placeholder="Wprowadź dane">
 <button id="searchButton" onclick="searchData()">Wyszukaj</button>
 
@@ -90,7 +83,7 @@
         }
 
         var apiKey = 'AIzaSyD0DTyPWSFIAalWvehONn1kFbkNqKyyDdU';
-        var sheetId = '1wKKsJZCgUvjmu4BgWspVDH3IHcE5WJtCpiuBiamppnk';
+        var sheetId = '12GqTu_ESYXrXnpbCSB6uG0K_XybfJTPLiHD-uwxUFus';
 
         // Czyszczenie poprzednich wyników
         var resultContainer = document.getElementById('resultContainer');
@@ -151,10 +144,6 @@
                 resultContainer.innerHTML = `<p class="error-message">Błąd: ${error.message}</p>`;
             });
     }
-
-   /* function openScanner() {
-        document.getElementById('scanButton').click();
-    }*/
 </script>
 
 </body>
