@@ -143,6 +143,45 @@
                 resultContainer.innerHTML = `<p class="error-message">Błąd: ${error.message}</p>`;
             });
     }
+
+    // Obsługa wyników skanowania
+    function onScanSuccess(result) {
+        // Pobierz zeskanowany kod
+        var scannedCode = result.codeResult.code;
+
+        // Przypisz zeskanowany kod do pola wyszukiwania
+        document.getElementById('searchInput').value = scannedCode;
+
+        // Wywołaj funkcję wyszukiwania
+        searchData();
+    }
+
+    // Zainicjowanie skanera
+    Quagga.init({
+        inputStream: {
+            name: "Live",
+            type: "LiveStream",
+            target: document.querySelector('body'), // Skanowanie odbywa się na całej stronie
+            constraints: {
+                width: 480,
+                height: 320,
+                facingMode: "environment"
+            },
+        },
+        decoder: {
+            readers: ["code_128_reader"]
+        }
+    }, function (err) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        // Start skanera
+        Quagga.start();
+    });
+
+    // Wywołanie funkcji po udanym skanowaniu
+    Quagga.onDetected(onScanSuccess);
 </script>
 
 </body>
