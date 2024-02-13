@@ -144,6 +144,47 @@
                 resultContainer.innerHTML = `<p class="error-message">Błąd: ${error.message}</p>`;
             });
     }
+
+    function openScanner() {
+        // Zainicjowanie skanera
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector('#scanButton'),
+                constraints: {
+                    width: 480,
+                    height: 320,
+                    facingMode: "environment"
+                },
+            },
+            decoder: {
+                readers: ["code_128_reader"]
+            }
+        }, function (err) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            // Start skanera
+            Quagga.start();
+        });
+
+        // Obsługa wyników skanowania
+        Quagga.onDetected(function (result) {
+            // Zatrzymaj skaner
+            Quagga.stop();
+            
+            // Pobierz zeskanowany kod
+            var scannedCode = result.code;
+
+            // Przypisz zeskanowany kod do pola wyszukiwania
+            document.getElementById('searchInput').value = scannedCode;
+
+            // Wywołaj funkcję wyszukiwania
+            searchData();
+        });
+    }
 </script>
 
 </body>
