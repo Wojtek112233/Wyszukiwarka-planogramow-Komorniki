@@ -17,7 +17,10 @@ function searchData() {
         return;
     }
 
-    var apiKey = 'AIzaSyD0DTyPWSFIAalWvehONn1kFbkNqKyyDdU';
+    import config from './config';
+
+    const apiKey = config.apiKey;
+    
     var sheetId = '1wKKsJZCgUvjmu4BgWspVDH3IHcE5WJtCpiuBiamppnk';
 
     // Czyszczenie poprzednich wyników
