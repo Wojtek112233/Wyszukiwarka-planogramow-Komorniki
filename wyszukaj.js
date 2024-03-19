@@ -18,7 +18,7 @@ function searchData() {
     }
 
     var import config from './config';
-    const apiKey = config.apiKey;
+    var const apiKey = config.apiKey;
     
     var sheetId = '1wKKsJZCgUvjmu4BgWspVDH3IHcE5WJtCpiuBiamppnk';
 
