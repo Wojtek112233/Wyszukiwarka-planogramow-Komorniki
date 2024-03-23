@@ -80,4 +80,7 @@ function searchData() {
             // Obsługa błędu i wyświetlanie powiadomienia
             resultContainer.innerHTML = `<p class="error-message">Błąd: ${error.message}</p>`;
         });
+    <div id="resultContainer"></div>
+<script src="https://cdn.rawgit.com/serratus/quaggaJS/0.12.1/dist/quagga.min.js"></script>
+
 }
